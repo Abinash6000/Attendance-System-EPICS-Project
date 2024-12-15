@@ -83,10 +83,9 @@ fun LoginScreen() {
                     Box(
                         modifier = Modifier
                             .fillMaxSize()
-                            .padding(horizontal = 16.dp), // Padding for neatness
-                        contentAlignment = Alignment.Center // Align text to the end (right)
+                            .padding(horizontal = 16.dp),
+                        contentAlignment = Alignment.Center
                     ) {
-                        // LOGIN Text aligned to the extreme right
                         Text(
                             text = "LOGIN",
                             fontSize = 24.sp,
