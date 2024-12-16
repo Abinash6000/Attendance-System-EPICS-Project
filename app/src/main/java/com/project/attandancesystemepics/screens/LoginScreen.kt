@@ -1,4 +1,4 @@
-package com.project.attandancesystemepics
+package com.project.attandancesystemepics.screens
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -10,13 +10,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.Alignment
+import androidx.navigation.NavController
+import com.project.attandancesystemepics.R
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -59,7 +60,7 @@ fun LoginScreen() {
             )
 
             Button(
-                onClick = { /* Handle button click */ },
+                onClick = { navController.navigate("dashboard") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(100.dp)
@@ -101,8 +102,3 @@ fun LoginScreen() {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun LoginScreenPreview() {
-    LoginScreen()
-}

@@ -1,5 +1,6 @@
 package com.project.attandancesystemepics.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -70,7 +71,14 @@ fun DashboardScreen(navController: NavController) {
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 items(upcomingClasses) { classInfo ->
-                    ClassCard(className = classInfo.first, date = classInfo.second, time = classInfo.third)
+                    ClassCard(
+                        className = classInfo.first,
+                        date = classInfo.second,
+                        time = classInfo.third,
+                        onClick = {
+                            navController.navigate("PerClassView")
+                        }
+                    )
                 }
             }
         }
@@ -78,11 +86,12 @@ fun DashboardScreen(navController: NavController) {
 }
 
 @Composable
-fun ClassCard(className: String, date: String, time: String) {
+fun ClassCard(className: String, date: String, time: String, onClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(100.dp),
+            .height(100.dp)
+            .clickable {onClick()},
         shape = RoundedCornerShape(8.dp),
         colors = CardDefaults.cardColors(containerColor = Color(0xFF9A74F0)),
         elevation = CardDefaults.cardElevation(4.dp)
