@@ -16,6 +16,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.padding
 import com.project.attandancesystemepics.screens.DashboardScreen
+import com.project.attandancesystemepics.screens.LoginScreen
+import com.project.attandancesystemepics.screens.PerClassView
 import com.project.attandancesystemepics.ui.theme.AttandanceSystemEPICSTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,26 +29,10 @@ class MainActivity : ComponentActivity() {
                 NavHost(navController = navController, startDestination = "login") {
                     composable("login") { LoginScreen(navController) }
                     composable("dashboard") { DashboardScreen(navController) }
+                    composable("PerClassView"){ PerClassView(navController) }
                 }
             }
         }
     }
 }
 
-@Composable
-fun LoginScreen(navController: NavController) {
-    // Simple Login Screen UI with a button
-    androidx.compose.foundation.layout.Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxSize().padding(16.dp)
-    ) {
-        Text(text = "Login Screen", style = androidx.compose.material3.MaterialTheme.typography.headlineMedium)
-
-        Button(
-            onClick = { navController.navigate("dashboard") }, // Navigate to DashboardScreen
-            modifier = Modifier.padding(top = 16.dp)
-        ) {
-            Text("Temporary Login")
-        }
-    }
-}
